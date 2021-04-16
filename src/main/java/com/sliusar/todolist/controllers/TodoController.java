@@ -12,7 +12,6 @@ import java.util.Optional;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/todoItems")
-@CrossOrigin(origins = {"http://localhost:4200"})
 public class TodoController {
     @Qualifier("tsi")
     private final TodoService todoService;

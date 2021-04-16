@@ -12,7 +12,6 @@ import java.util.Optional;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/schedules")
-@CrossOrigin(origins = {"http://localhost:4200"})
 public class ScheduleController {
     @Qualifier("ssi")
     private final ScheduleService scheduleService;
