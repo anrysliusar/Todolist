@@ -1,0 +1,3 @@
+[submodule "src/main/front-end"]
+	path = src/main/front-end
+	url = ../Todolist-front
