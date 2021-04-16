@@ -22,7 +22,7 @@ public class User implements UserDetails {
 
     private String password;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     private List<Role> roles = Collections.singletonList(Role.ROLE_ADMIN);
 
