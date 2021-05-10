@@ -1,0 +1,28 @@
+<div>
+  <h4>{{todo?.title}}</h4>
+  <div>{{todo?.body}}</div>
+  final date:<p>{{todo?.finalDate | date:'fullDate'}}</p>
+  <button (click)="isAvailable = !isAvailable">edit</button>
+</div>
+
+<div *ngIf="isAvailable">
+  <form #scheduleFormUpdate="ngForm" >
+    <fieldset>
+      <legend>Updating todo</legend>
+    <label>
+      Enter new title
+      <input type="text" name="title" [(ngModel)]="updatedTitle">
+    </label>
+    <label>
+      Enter new body
+      <input type="text" name="body" [(ngModel)]="updatedBody">
+    </label>
+    <label>
+      Enter new date
+      <input type="date" name="date" [(ngModel)]="updatedDate">
+    </label>
+    <button (click)="updateTodo()">save changes</button>
+      </fieldset>
+  </form>
+</div>
+

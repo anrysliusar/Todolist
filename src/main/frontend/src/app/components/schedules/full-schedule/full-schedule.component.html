@@ -1,0 +1,46 @@
+<div>
+  <h3>Title: {{chosenSchedule?.title}}</h3>
+
+  <form #formCreateTodo="ngForm"  (ngSubmit)="addTodo()">
+    <fieldset>
+    <legend>Creation new todo</legend>
+    <label>
+      Title
+      <input type="text" name="title" [(ngModel)]="title" >
+    </label>
+    <label>
+      Body
+      <input type="text" name="body" [(ngModel)]="body" >
+    </label>
+    <label>
+      FinalDate
+      <input type="date" name="finalDate" [(ngModel)]="finalDate" >
+    </label>
+    <button>add todo</button>
+    </fieldset>
+  </form>
+</div>
+
+<br>
+
+<label>
+  Select sorting type:
+  <select #selectSortingType>
+        <option *ngFor="let option of options" [value]="option.field">
+          {{option.name}}
+        </option>
+      </select>
+  <button (click)="apply()">apply</button>
+</label>
+
+
+<!--Sorting-->
+<div *ngIf="chosenSchedule">
+  <div *ngFor="let todo of chosenSchedule?.todoList | orderBy: selectSortingType.value">
+      <hr>
+      {{todo?.id}}
+      <app-todo *ngIf="todo" [todo]="todo" [scheduleId]="chosenSchedule?.id"></app-todo>
+      <button (click)="deleteTodo(todo?.id)">delete</button>
+    </div>
+</div>
+

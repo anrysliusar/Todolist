@@ -1,0 +1,48 @@
+<h2>All Schedules</h2>
+<form #scheduleFormCreate="ngForm" (ngSubmit)="saveSchedule()">
+  <fieldset>
+    <legend>Creation new TodoList</legend>
+  <label>
+    Title:
+    <input type="text" name="title" [(ngModel)]="title" >
+  </label>
+  <button>Create</button>
+    </fieldset>
+</form>
+<br>
+
+<div *ngFor="let schedule of schedules">
+  {{schedule.title}}
+  <button (click)="goToSchedules(schedule)">show more</button>
+  <button (click)="deleteSchedule(schedule.id)">Delete</button>
+</div>
+
+<hr>
+
+<br>
+<div *ngIf="schedules.length != 0">
+  <button (click)="isAvailable = !isAvailable">Edit</button>
+  <div *ngIf="isAvailable">
+    <form #scheduleFormUpdate="ngForm" >
+      <fieldset>
+        <legend>Updating TodoList</legend>
+      <label>
+        Select TodoList
+        <select #selectedUpdate>
+          <option *ngFor="let schedule of schedules" [value]="schedule.id">
+            {{schedule.title}}
+          </option>
+        </select>
+      </label>
+      <div>
+        <label>
+          Enter new title
+          <input type="text" name="title" [(ngModel)]="updatedTitle">
+        </label>
+      </div>
+      <button (click)="updateSchedule(selectedUpdate.value)">save changes</button>
+        </fieldset>
+    </form>
+  </div>
+</div>
+
