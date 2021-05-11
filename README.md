@@ -1,7 +1,7 @@
 # Todolist
 
-[![Hits-of-Code](https://hitsofcode.com/github/smithros/booknet)](https://hitsofcode.com/view/github/anrysliusar/todolist)
-[![Commit activity](https://img.shields.io/github/commit-activity/y/smithros/booknet)](https://github.com/anrysliusar/todolist/graphs/commit-activity)
+[![Hits-of-Code](https://hitsofcode.com/github/anrysliusar/todolist)](https://hitsofcode.com/view/github/anrysliusar/todolist)
+[![Commit activity](https://img.shields.io/github/commit-activity/y/anrysliusar/todolist)](https://github.com/anrysliusar/todolist/graphs/commit-activity)
 <br>
 It allows users to create new To-Do lists and add tasks to them. 
 It is also possible to sort tasks in the lists by different fields
@@ -48,3 +48,8 @@ This will automatically open `http://localhost:4200` in your browser.
 
 ## Screenshots of the program
 
+![screenshot](./images/Screenshot_1.png)
+![screenshot](./images/Screenshot_2.png)
+![screenshot](./images/Screenshot_3.png)
+![screenshot](./images/Screenshot_4.png)
+![screenshot](./images/Screenshot_5.png)
