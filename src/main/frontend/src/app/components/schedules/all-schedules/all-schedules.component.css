@@ -1,0 +1,14 @@
+.bg-azure{
+  background-color: azure;
+}
+
+.ml-10{
+  margin-left: 10%;
+}
+
+.listItems {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

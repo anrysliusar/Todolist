@@ -1,48 +1,59 @@
-<h2>All Schedules</h2>
-<form #scheduleFormCreate="ngForm" (ngSubmit)="saveSchedule()">
-  <fieldset>
-    <legend>Creation new TodoList</legend>
-  <label>
-    Title:
-    <input type="text" name="title" [(ngModel)]="title" >
-  </label>
-  <button>Create</button>
-    </fieldset>
-</form>
-<br>
-
-<div *ngFor="let schedule of schedules">
-  {{schedule.title}}
-  <button (click)="goToSchedules(schedule)">show more</button>
-  <button (click)="deleteSchedule(schedule.id)">Delete</button>
-</div>
-
-<hr>
-
-<br>
-<div *ngIf="schedules.length != 0">
-  <button (click)="isAvailable = !isAvailable">Edit</button>
-  <div *ngIf="isAvailable">
-    <form #scheduleFormUpdate="ngForm" >
-      <fieldset>
-        <legend>Updating TodoList</legend>
-      <label>
-        Select TodoList
-        <select #selectedUpdate>
-          <option *ngFor="let schedule of schedules" [value]="schedule.id">
-            {{schedule.title}}
-          </option>
-        </select>
-      </label>
-      <div>
-        <label>
-          Enter new title
-          <input type="text" name="title" [(ngModel)]="updatedTitle">
-        </label>
+<div class="bg-azure">
+  <h2 class="text-center p-2">All TodoLists</h2>
+  <form #scheduleFormCreate="ngForm" class="ml-10 form-check-inline" (ngSubmit)="saveSchedule()">
+    <fieldset>
+      <legend>Creating a new TodoList</legend>
+      <div class="d-lg-inline-flex">
+        <input type="text" placeholder="Enter a title" name="title" [(ngModel)]="title" >
+        <button class="m-2 p-1 btn btn-success pad" >Create</button>
       </div>
-      <button (click)="updateSchedule(selectedUpdate.value)">save changes</button>
-        </fieldset>
-    </form>
+    </fieldset>
+  </form>
+  <hr>
+
+  <div class="listItems">
+    <div *ngFor="let schedule of schedules">
+      <div class="card" style="width: 20rem; ">
+        <div class="card-body m-2">
+          <h5 class="card-title">{{schedule.title}}</h5>
+          <button class="btn-primary text-white" (click)="goToSchedules(schedule)">Open</button>
+          <button class="btn-outline-danger" (click)="deleteSchedule(schedule.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <br>
+  <div class="ml-10">
+    <div *ngIf="schedules.length != 0">
+      <div class="text-center">
+        <button class="btn-warning " (click)="isAvailable = !isAvailable">Update choosing todolist</button>
+      </div>
+      <br>
+      <div class="bg-gradient" *ngIf="isAvailable">
+        <form #scheduleFormUpdate="ngForm" >
+          <div class="card" style="width: 20rem;">
+            <div class="card-body">
+              <h5 class="card-title">Updating TodoList</h5>
+              <div class="m-1">
+                <label>
+                  Select TodoList
+                  <select class="m-1 form-select" #selectedUpdate>
+                    <option *ngFor="let schedule of schedules" [value]="schedule.id">{{schedule.title}}</option>
+                    </select>
+                  </label>
+                  <input class="m-1" type="text" placeholder="Enter new title" name="title" [(ngModel)]="updatedTitle">
+                  <button class="btn-outline-primary m-1" (click)="updateSchedule(selectedUpdate.value)">save changes</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <br>
+      </div>
+    </div>
   </div>
 </div>
+
 

@@ -1,27 +1,29 @@
 <div>
-  <h4>{{todo?.title}}</h4>
-  <div>{{todo?.body}}</div>
-  final date:<p>{{todo?.finalDate | date:'fullDate'}}</p>
-  <button (click)="isAvailable = !isAvailable">edit</button>
+
+    <div class="card-body m-2">
+      <h4>{{todo?.title}}</h4>
+      id: {{todo?.id}}
+      <div>{{todo?.body}}</div>
+      Final date: {{todo?.finalDate | date:'fullDate'}}
+      <button class="btn-warning" (click)="isAvailable = !isAvailable">edit</button>
+    </div>
 </div>
 
-<div *ngIf="isAvailable">
+<div *ngIf="isAvailable" class="p-2">
   <form #scheduleFormUpdate="ngForm" >
     <fieldset>
       <legend>Updating todo</legend>
     <label>
-      Enter new title
-      <input type="text" name="title" [(ngModel)]="updatedTitle">
+      <input type="text" placeholder="Title" name="title" [(ngModel)]="updatedTitle">
     </label>
     <label>
-      Enter new body
-      <input type="text" name="body" [(ngModel)]="updatedBody">
+      <input type="text" name="body" placeholder="Description" [(ngModel)]="updatedBody">
     </label>
     <label>
       Enter new date
       <input type="date" name="date" [(ngModel)]="updatedDate">
     </label>
-    <button (click)="updateTodo()">save changes</button>
+    <button class="btn-primary" (click)="updateTodo()">save changes</button>
       </fieldset>
   </form>
 </div>

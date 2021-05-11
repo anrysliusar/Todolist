@@ -1,46 +1,52 @@
-<div>
-  <h3>Title: {{chosenSchedule?.title}}</h3>
+<div class="bg-azure">
+  <div>
 
-  <form #formCreateTodo="ngForm"  (ngSubmit)="addTodo()">
-    <fieldset>
-    <legend>Creation new todo</legend>
-    <label>
-      Title
-      <input type="text" name="title" [(ngModel)]="title" >
-    </label>
-    <label>
-      Body
-      <input type="text" name="body" [(ngModel)]="body" >
-    </label>
-    <label>
-      FinalDate
-      <input type="date" name="finalDate" [(ngModel)]="finalDate" >
-    </label>
-    <button>add todo</button>
-    </fieldset>
-  </form>
+  <h1 class="text-center">{{chosenSchedule?.title}}</h1>
+    <div class="ml-10">
+      <form #formCreateTodo="ngForm"  (ngSubmit)="addTodo()">
+        <fieldset>
+          <legend>Creating a new task</legend>
+          <label>
+            <input type="text" placeholder="Title" name="title" [(ngModel)]="title" >
+          </label>
+          <label>
+            <input type="text" name="body" placeholder="Description" [(ngModel)]="body" >
+          </label>
+          <div class="p-1">
+            <label>
+              FinalDate
+              <input type="date" name="finalDate" [(ngModel)]="finalDate" >
+            </label>
+            <button class="ml-1 btn-success">add task</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
 </div>
 
 <br>
-
-<label>
+<label class="ml-10">
   Select sorting type:
-  <select #selectSortingType>
+  <select class="form-select-sm" #selectSortingType>
         <option *ngFor="let option of options" [value]="option.field">
           {{option.name}}
         </option>
-      </select>
-  <button (click)="apply()">apply</button>
+  </select>
+  <button class="btn-warning" style="margin-left: 10px" (click)="apply()">apply</button>
 </label>
-
+  <hr>
 
 <!--Sorting-->
-<div *ngIf="chosenSchedule">
+<h3 class="text-center">All tasks</h3>
+<div *ngIf="chosenSchedule" class="listItems">
   <div *ngFor="let todo of chosenSchedule?.todoList | orderBy: selectSortingType.value">
-      <hr>
-      {{todo?.id}}
+
+    <div class="card" style="width: 20rem; ">
       <app-todo *ngIf="todo" [todo]="todo" [scheduleId]="chosenSchedule?.id"></app-todo>
-      <button (click)="deleteTodo(todo?.id)">delete</button>
+      <button class="btn-danger w-25 " (click)="deleteTodo(todo?.id)">delete</button>
     </div>
+  </div>
 </div>
+</div>
+
 
