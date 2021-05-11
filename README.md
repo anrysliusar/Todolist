@@ -3,6 +3,7 @@
 [![Hits-of-Code](https://hitsofcode.com/github/anrysliusar/todolist)](https://hitsofcode.com/view/github/anrysliusar/todolist)
 [![Commit activity](https://img.shields.io/github/commit-activity/y/anrysliusar/todolist)](https://github.com/anrysliusar/todolist/graphs/commit-activity)
 <br>
+### Simple To-Do list application
 It allows users to create new To-Do lists and add tasks to them. 
 It is also possible to sort tasks in the lists by different fields
 <br>
